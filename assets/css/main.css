@@ -522,6 +522,107 @@ div[class^="col"] {
 .col-2 {
   width: calc(100% / 6); }
 
+.navigation-toggle {
+  background-color: #fff;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 4rem;
+  right: 4rem;
+  z-index: 100;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  text-align: center; }
+
+.navigation-icon {
+  width: 3rem;
+  height: 0.2rem;
+  background-color: #333;
+  display: inline-block;
+  margin-top: calc(3.5rem - 0.1rem);
+  position: relative; }
+  .navigation-icon::after, .navigation-icon::before {
+    content: '';
+    width: 3rem;
+    height: 0.2rem;
+    position: absolute;
+    background-color: #333;
+    transition: all 0.3s ease-in-out; }
+  .navigation-icon::after {
+    top: 0.8rem;
+    left: 0; }
+  .navigation-icon::before {
+    top: -0.8rem;
+    left: 0; }
+
+.navigation-background {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  background-image: linear-gradient(#28b485, #7ed56f);
+  position: fixed;
+  top: 4.5rem;
+  right: 4.5rem;
+  z-index: 50;
+  transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1); }
+
+.navigation-nav {
+  position: fixed;
+  left: -100%;
+  top: 0;
+  width: 0;
+  height: 100vh;
+  text-align: center;
+  z-index: 80;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.25, 1.5); }
+
+.navigation-list {
+  list-style: none; }
+
+.navigation-item {
+  margin: 1rem; }
+
+.navigation-link:link, .navigation-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 300;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 1rem 2rem;
+  background-image: linear-gradient(121deg, transparent 50%, white 50%);
+  background-size: 250%;
+  transition: all .5s ease-in-out; }
+
+.navigation-link:hover, .navigation-link:focus {
+  background-position: 100%;
+  color: #55c57a;
+  font-weight: 700; }
+
+.navigation.active .navigation-background {
+  transform: scale(60); }
+
+.navigation.active .navigation-nav {
+  left: 0;
+  width: 100vw;
+  opacity: 1; }
+
+.navigation.active .navigation-icon {
+  background-color: transparent; }
+  .navigation.active .navigation-icon::after {
+    top: 0;
+    transform: rotate(135deg); }
+  .navigation.active .navigation-icon::before {
+    top: 0;
+    transform: rotate(-135deg); }
+
 .section-about {
   background-color: #f7f7f7;
   padding: 25rem 0;
