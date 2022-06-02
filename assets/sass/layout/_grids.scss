@@ -1,6 +1,9 @@
 .container{
     max-width: 114rem;
     margin: 0 auto;
+    @include response(tabPort){
+        max-width: 80%;
+    }
 }
 .row{
     &,
@@ -12,6 +15,12 @@
 div[class^="col"]{
     float: left;
     padding: 0 1.5rem;
+    @include response(phone){
+        width: 100% !important;
+    }
+    @include response(phone){
+        margin-bottom: 2rem;
+    }
 }
 .col-12{
     width: 100%;

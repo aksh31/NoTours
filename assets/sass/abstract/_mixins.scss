@@ -1,9 +1,9 @@
-
 @mixin clearFix {
     width: 100%;
     display: table;
     clear: both;
 }
+
 @mixin toCenter {
     position: absolute;
     top: 50%;
@@ -15,11 +15,54 @@
     background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
     -webkit-background-clip: text;
     background-clip: text;
-    color:transparent;
+    color: transparent;
 }
 
-// We iuse responsive code for phone tab and laptop
-// phone >> max-width 600px
-// tab-port >> max-width 900px 
-// tab-land >> max-width 1200px
-// laptop >> min-width 1200px
+/* MEDIA QUERY MANAGER
+    phone >>>>> 0 - 600px
+    tab-port >>>>> 600px - 900px 
+    tab-land >>>>> 900px - 1200px
+    laptop >>>>> 1200px - 1800px
+    Big Screens >> 1800+
+*/
+/*
+    Breakpoints
+    - Phone
+    - tab-Port
+    - tab-Landscape
+    - BigScreens
+*/
+
+// ORDER >> base + typography >> layout + grids >> page layout >> components
+
+// @mixin response-phone {
+//     @media (max-width:600px) {
+//         @content;
+//     }
+// }
+
+@mixin response($breakPoint) {
+    @if $breakPoint == phone {
+        @media (max-width : 37.5em) {  // 1em == 16px : ?? == 600px
+            @content;
+        }
+    }
+
+    @if $breakPoint == tabPort {
+        @media (max-width : 56.25em) { // 1em == 16px : ?? == 900px
+            @content;
+        }
+    }
+
+    @if $breakPoint == tabLand {
+        @media (max-width : 75em) { // 1em == 16px : ?? == 1200px
+            @content;
+        }
+    }
+
+    @if $breakPoint == bigScreen {
+        @media (min-width : 112.5em) { // 1em == 16px : ?? == 1800px
+            @content;
+        }
+    }
+}

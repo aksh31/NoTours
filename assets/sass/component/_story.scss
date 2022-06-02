@@ -7,8 +7,17 @@
     box-shadow: 0 3rem 6rem rgba($color-dark, 0.1);
     transform: skewX(-14deg);
     position: relative;
+    @include response (phone){
+        transform: skewX(0);
+        width: 100%;
+        padding: 2rem;
+    }
+
     > *{
         transform: skewX(14deg);
+        @include response (phone){
+            transform: skewX(0);
+        }
     }
     &-shape{
         height: 15rem;
@@ -18,6 +27,10 @@
         clip-path: circle(50% at 50% 50%);
         margin-right: 4rem;
         overflow: hidden;
+        @include response(phone){
+            float: none;
+            margin: 0 auto 2rem;
+        }
     }
     &-img{
         height: 100%;
@@ -45,5 +58,15 @@
     &:hover &-img{
         transform: scale(1);
         filter: blur(3px) brightness(80%);
+    }
+    &-details{
+        @include response(phone){
+            text-align: center;
+        }
+        p{
+            @include response(phone){
+                text-align: justify;
+            }
+        }
     }
 }

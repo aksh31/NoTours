@@ -1,5 +1,8 @@
 .composition{
     position: relative;
+    @include response(phone){
+        margin-top: 4rem;
+    }
     &-img{
         width: 55%;
         box-shadow: 0 1.5rem 4rem rgba($color-dark, 0.4);
@@ -11,14 +14,25 @@
         &-1{
             left: 0;
             top: -2rem;
+            @include response(phone){
+                left: -10%;
+            }
         }
         &-2{
             right: 0;
             top: 2rem;
+            @include response(phone){
+                right: 22%;
+                top: 0;
+            }
         }
         &-3{
             left: 20%;
             top: 10rem;
+            @include response(phone){
+                left: 56%;
+                top: 2rem;
+            }
         }
         &:hover{
             transform: scale(1.05);

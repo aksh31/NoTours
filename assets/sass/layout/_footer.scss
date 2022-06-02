@@ -11,6 +11,10 @@
         display: inline-block;
         border-top: 0.1rem solid $color-grey-dark;
         padding-top: 2rem;
+        @include response(phone){
+            width: 100%;
+            text-align: center;
+        }
     }
 
     &-list {
@@ -45,5 +49,9 @@
         width: 84%;
         margin-left: auto;
         text-align: justify;
+        @include response(phone){
+            width: 100%;
+            text-align: center;
+        }
     }
 }
